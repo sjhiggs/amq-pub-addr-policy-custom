@@ -1,6 +1,9 @@
 Custom Published Address Strategy
 =================================
 
+Description
+-----------
+This project demonstrates the addition of a custom published address strategy for A-MQ.  This custom strategy allows you to configure the published hostname for an A-MQ broker in etc/activemq.xml.
 
 Version
 -------
