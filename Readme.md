@@ -8,20 +8,23 @@ This modification was originally developed and compiled for A-MQ 6.2.1-117.  Mod
 
 Compile
 -------
-mvn clean install
+`mvn clean install`
 
 
 Install
 -------
+~~~~
 JBossA-MQ:karaf@root> osgi:install mvn:com.redhat.examples/my-published-address-strategy/1.0.0-SNAPSHOT
 JBossA-MQ:karaf@root> la | grep activemq-osgi
 [ 137] [Active     ] [Created     ] [       ] [   50] activemq-osgi (5.11.0.redhat-621117), Fragments: 153
 JBossA-MQ:karaf@root> update 137
 You are about to access system bundle 137.  Do you wish to continue (yes/no): yes
+~~~~
 
 
 Modify etc/activemq.xml
 -----------------------
+~~~~
 <bean class="com.redhat.examples.broker.PublishedAddressPolicyHostnameConfig" id="addressPolicy">
         <property name="hostname" value="myamq-a-public.local" />
 </bean>
@@ -29,7 +32,7 @@ Modify etc/activemq.xml
 <transportConnectors>
             <transportConnector name="openwire" publishedAddressPolicy="#addressPolicy"  uri="tcp://0.0.0.0:0?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600" updateClusterClients="true" rebalanceClusterClients="true" updateClusterClientsOnRemove="true"/>
 </transportConnectors>
-
+~~~~
 
 Restart Container
 -----------------
